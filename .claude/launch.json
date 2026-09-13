@@ -2,11 +2,20 @@
   "version": "0.0.1",
   "configurations": [
     {
+      "name": "predictor-api",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-c",
+        "import os,sys; os.chdir('bet_prediction_project/artifacts/predictor-api'); sys.path.insert(0, os.getcwd()); [os.environ.setdefault(k.strip(), v.strip()) for k, _, v in (l.partition('=') for l in open('.env.local') if '=' in l and not l.lstrip().startswith('#'))]; import uvicorn; uvicorn.run('main:app', host='127.0.0.1', port=8000, reload=True)"
+      ],
+      "port": 8000
+    },
+    {
       "name": "predictor-web",
       "runtimeExecutable": "npx",
       "runtimeArgs": [
         "--yes",
-        "pnpm@9",
+        "pnpm@10.34.5",
         "--dir",
         "bet_prediction_project",
         "--filter",
@@ -22,7 +31,7 @@
       "runtimeExecutable": "npx",
       "runtimeArgs": [
         "--yes",
-        "pnpm@9",
+        "pnpm@10.34.5",
         "--dir",
         "bet_prediction_project",
         "--filter",
